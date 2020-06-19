@@ -22,12 +22,9 @@ namespace Company
 
         void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var employeeMenuItem = e.SelectedItem as EmployeesMasterMenuItem;
-            if (employeeMenuItem == null)
+            var employee = e.SelectedItem as Employee;
+            if (employee == null)
                 return;
-            Employee employee = new EmployeeBL().GetById(employeeMenuItem.Id);
-            //var page = (Page)Activator.CreateInstance(employee.TargetType);
-            //page.Title = employee.Title;
 
             Detail = new NavigationPage(new Details(employee));
             IsPresented = false;

@@ -29,18 +29,12 @@ namespace Company
 
         class EmployeesMasterViewModel : INotifyPropertyChanged
         {
-            public ObservableCollection<EmployeesMasterMenuItem> MenuItems { get; set; }
+            public ObservableCollection<Employee> MenuItems { get; set; }
 
             public EmployeesMasterViewModel()
             {
                 ObservableCollection<Employee> employees = new EmployeeBL().GetEmployees();
-                ObservableCollection<EmployeesMasterMenuItem> items = new ObservableCollection<EmployeesMasterMenuItem>();
-                foreach(Employee employee in employees)
-                {
-                    EmployeesMasterMenuItem item = new EmployeesMasterMenuItem { Id = employee.Id, Title = employee.Name };
-                    items.Add(item);
-                }
-                MenuItems = items;
+                MenuItems = employees;
             }
 
 

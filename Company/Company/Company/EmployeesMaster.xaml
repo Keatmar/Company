@@ -13,23 +13,19 @@
               ItemsSource="{Binding MenuItems}">
       <d:ListView.ItemsSource>
           <x:Array Type="{x:Type x:String}">
-              <x:String>Page 1</x:String>
-              <x:String>Page 2</x:String>
-              <x:String>Page 3</x:String>
-              <x:String>Page 4</x:String>
-              <x:String>Page 5</x:String>
+
           </x:Array>
       </d:ListView.ItemsSource>
       <ListView.Header>
         <Grid BackgroundColor="#03A9F4">
           <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="80"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="10"/>
           </Grid.RowDefinitions>
@@ -43,13 +39,14 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-              <Label VerticalOptions="FillAndExpand"
-                    VerticalTextAlignment="Center"
-                    Text="{Binding Title}"
-                    d:Text="{Binding .}"
-                    FontSize="24"/>
-            </StackLayout>
+            <StackLayout
+                Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"
+                                   Text="{Binding Name}" TextColor="Black"
+                                   FontSize="15"/>
+                            <Label Text="{Binding Specialty}" VerticalOptions="FillAndExpand"
+                                   TextColor="Gray"/>
+             </StackLayout>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
