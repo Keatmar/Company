@@ -10,7 +10,7 @@ namespace Company
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Employees();
         }
 
         protected override void OnStart()
