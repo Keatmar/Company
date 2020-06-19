@@ -7,8 +7,8 @@
              x:Class="Company.Employees"
              xmlns:pages="clr-namespace:Company">
     <MasterDetailPage.Master>
-    <pages:EmployeesMaster x:Name="MasterPage" />
-  </MasterDetailPage.Master>
+        <pages:EmployeesMaster x:Name="MasterPage"  />
+    </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>

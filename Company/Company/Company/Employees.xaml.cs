@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Company.BLL;
+using Company.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +20,16 @@ namespace Company
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as EmployeesMasterMenuItem;
-            if (item == null)
+            var employeeMenuItem = e.SelectedItem as EmployeesMasterMenuItem;
+            if (employeeMenuItem == null)
                 return;
+            Employee employee = new EmployeeBL().GetById(employeeMenuItem.Id);
+            //var page = (Page)Activator.CreateInstance(employee.TargetType);
+            //page.Title = employee.Title;
 
-            var page = (Page)Activator.CreateInstance(item.TargetType);
-            page.Title = item.Title;
-
-            Detail = new NavigationPage(page);
+            Detail = new NavigationPage(new Details(employee));
             IsPresented = false;
 
             MasterPage.ListView.SelectedItem = null;

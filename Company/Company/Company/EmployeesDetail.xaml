@@ -7,10 +7,10 @@
              x:Class="Company.EmployeesDetail"
              Title="Employees">
     <StackLayout Padding="10">
-        <ListView x:Name="listView" IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing">
-            <!--ItemSelected="Handle_ItemSelected" ItemTapped="Handle_ItemTapped"
-              IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing"-->
-                <ListView.ItemTemplate>
+        <ListView x:Name="listView"
+                  ItemSelected="Handle_ItemSelected"
+                  IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing">
+            <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5, 0, 0, 0">

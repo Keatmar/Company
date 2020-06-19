@@ -43,6 +43,7 @@ namespace Company
                 MenuItems = items;
             }
 
+
             #region INotifyPropertyChanged Implementation
             public event PropertyChangedEventHandler PropertyChanged;
             void OnPropertyChanged([CallerMemberName] string propertyName = "")
@@ -53,6 +54,11 @@ namespace Company
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
             #endregion
+        }
+
+        private void MenuItemsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

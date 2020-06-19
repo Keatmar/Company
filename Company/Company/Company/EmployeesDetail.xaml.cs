@@ -18,6 +18,35 @@ namespace Company
             InitializeComponent();
             listView.ItemsSource = new EmployeeBL().GetEmployees();
         }
+
+        /// <summary>
+        /// if employee selected navigate to detail page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Handle_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            var employee = e.SelectedItem as Employee;
+            await Navigation.PushAsync(new Details(employee));
+            listView.SelectedItem = null;
+        }
+
+        ///// <summary>
+        ///// if employee tapped navigate to detail page
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    if (e.SelectedItem == null)
+        //        return;
+        //    var employee = e.Item as Employee;
+        //    await Navigation.PushAsync(new Details(employee));
+        //    listView.SelectedItem = null;
+        //}
+
         /// <summary>
         /// if scroll to refresh, refresh the list
         /// </summary>
