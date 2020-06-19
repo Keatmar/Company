@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Company.BLL;
+using Company.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -31,14 +33,14 @@ namespace Company
 
             public EmployeesMasterViewModel()
             {
-                MenuItems = new ObservableCollection<EmployeesMasterMenuItem>(new[]
+                ObservableCollection<Employee> employees = new EmployeeBL().GetEmployees();
+                ObservableCollection<EmployeesMasterMenuItem> items = new ObservableCollection<EmployeesMasterMenuItem>();
+                foreach(Employee employee in employees)
                 {
-                    new EmployeesMasterMenuItem { Id = 0, Title = "Page 1" },
-                    new EmployeesMasterMenuItem { Id = 1, Title = "Page 2" },
-                    new EmployeesMasterMenuItem { Id = 2, Title = "Page 3" },
-                    new EmployeesMasterMenuItem { Id = 3, Title = "Page 4" },
-                    new EmployeesMasterMenuItem { Id = 4, Title = "Page 5" },
-                });
+                    EmployeesMasterMenuItem item = new EmployeesMasterMenuItem { Id = employee.Id, Title = employee.Name };
+                    items.Add(item);
+                }
+                MenuItems = items;
             }
 
             #region INotifyPropertyChanged Implementation

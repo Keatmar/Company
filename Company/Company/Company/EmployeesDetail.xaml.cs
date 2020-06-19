@@ -18,5 +18,15 @@ namespace Company
             InitializeComponent();
             listView.ItemsSource = new EmployeeBL().GetEmployees();
         }
+        /// <summary>
+        /// if scroll to refresh, refresh the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Handle_ListRefreshing(object sender, EventArgs e)
+        {
+            listView.ItemsSource = new EmployeeBL().GetEmployees();
+            listView.EndRefresh();
+        }
     }
 }
