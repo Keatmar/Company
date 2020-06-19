@@ -1,5 +1,6 @@
 ﻿using Company.BLL;
 using Company.Model;
+using Company.Persistance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace Company
         {
             InitializeComponent();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+
+            var connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            connection.CreateTableAsync<Employee>();
         }
 
         void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
