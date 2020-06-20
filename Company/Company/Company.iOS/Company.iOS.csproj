@@ -134,4 +134,22 @@
       <Name>Company</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\users.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\users%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\users%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus%402x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\plus%403x.gif" />
+  </ItemGroup>
 </Project>

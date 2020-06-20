@@ -4,24 +4,24 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Company.EmployeesDetail"
+             x:Class="Company.EmployeesList"
              Title="Employees">
     <StackLayout Padding="10">
         <ListView x:Name="listView"
                   ItemSelected="Handle_ItemSelected"
                   IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing">
             <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5, 0, 0, 0">
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5, 0, 0, 0">
                             <StackLayout HorizontalOptions="StartAndExpand">
                                 <Label Text="{Binding Name}" TextColor="Black"/>
                                 <Label Text="{Binding Specialty}" TextColor="Gray"/>
                             </StackLayout>
                         </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>

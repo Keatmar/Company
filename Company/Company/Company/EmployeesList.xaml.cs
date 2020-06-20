@@ -11,9 +11,9 @@ using Company.Model;
 namespace Company
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EmployeesDetail : ContentPage
+    public partial class EmployeesList: ContentPage
     {
-        public EmployeesDetail()
+        public EmployeesList()
         {
             InitializeComponent();
             listView.ItemsSource = new EmployeeBL().GetEmployees();

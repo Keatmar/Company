@@ -12,7 +12,7 @@
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <pages:EmployeesDetail />
+        <pages:EmployeesList />
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

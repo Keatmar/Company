@@ -1,6 +1,7 @@
 ﻿using Company.BLL;
 using Company.Model;
 using Company.Persistance;
+using Company.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +19,22 @@ namespace Company
         public Employees()
         {
             InitializeComponent();
+
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
 
-            var connection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            connection.CreateTableAsync<Employee>();
+            // Initialize table
+            EmployeeDb.CreateTable();
         }
 
         void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var employee = e.SelectedItem as Employee;
-            if (employee == null)
+            var item = e.SelectedItem as MenuItem.MenuItem;
+            if (item == null)
                 return;
-
-            Detail = new NavigationPage(new Details(employee));
+            if (item.Id == 0)
+                Detail = new NavigationPage(new EmployeesList());
+            else if (item.Id == 1)
+                Detail = new NavigationPage(new CreateEmployee());
             IsPresented = false;
 
             MasterPage.ListView.SelectedItem = null;

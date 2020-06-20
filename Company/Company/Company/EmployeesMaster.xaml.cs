@@ -1,14 +1,9 @@
-﻿using Company.BLL;
+﻿using Company.MenuItem;
 using Company.Model;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,18 +18,19 @@ namespace Company
         {
             InitializeComponent();
 
-            BindingContext = new EmployeesMasterViewModel();
+            BindingContext = new MasterViewModel();
             ListView = MenuItemsListView;
         }
 
-        class EmployeesMasterViewModel : INotifyPropertyChanged
+        class MasterViewModel : INotifyPropertyChanged
         {
-            public ObservableCollection<Employee> MenuItems { get; set; }
+            public ObservableCollection<MenuItem.MenuItem> MenuItems { get; set; }
 
-            public EmployeesMasterViewModel()
+            public MasterViewModel()
             {
-                ObservableCollection<Employee> employees = new EmployeeBL().GetEmployees();
-                MenuItems = employees;
+                ObservableCollection<MenuItem.MenuItem> items = new MenuItem.MenuItem().GetItems();
+
+                MenuItems = items;
             }
 
 
