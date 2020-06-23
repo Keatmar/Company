@@ -23,6 +23,11 @@ namespace Company.SQLite
             _con.CreateTableAsync<Employee>();
         }
 
+        /// <summary>
+        /// Insert new employee to database
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public async Task<int> InsertEmployee(Employee employee)
         {
             int id = 0;
@@ -42,6 +47,11 @@ namespace Company.SQLite
             return id;
         }
 
+        /// <summary>
+        /// Update employee
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public async Task UpdateEmployee(Employee employee)
         {
             try
@@ -55,6 +65,11 @@ namespace Company.SQLite
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Get all employees
+        /// </summary>
+        /// <returns></returns>
         async public Task<ObservableCollection<Employee>> FindEmployees()
         {
             ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
@@ -74,6 +89,11 @@ namespace Company.SQLite
             return employees;
         }
 
+        /// <summary>
+        /// Delete employee
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         async public Task DeleteEmployee(int id)
         {
             try

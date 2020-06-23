@@ -10,7 +10,7 @@ namespace Company
         public App()
         {
             InitializeComponent();
-            EmployeeBL.CreateEmployeeTable();
+            EmployeeBL.CreateEmployeeTable();   //Create table to database if not exists
             MainPage = new Employees();
 
         }

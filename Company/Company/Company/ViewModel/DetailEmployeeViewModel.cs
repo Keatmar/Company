@@ -25,14 +25,18 @@ namespace Company.ViewModel
             Task newPage = Task.Run(() => Device.BeginInvokeOnMainThread(async () => await navigation.PushAsync(new EditEmployee(Employee))));
         }
 
+        /// <summary>
+        /// Delete Employee
+        /// </summary>
         public void DeleteEmployee()
         {
             if (Employee == null)
                 return;
-            new EmployeeBL().DeleteEmploye(Employee.Id);
+            new EmployeeBL().DeleteEmployee(Employee.Id);
 
             Application.Current.MainPage = new Employees();
         }
+
 
         public void BackAction()
         {

@@ -137,40 +137,4 @@
       <Name>Company</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\users.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\users%402x.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\users%403x.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\plus.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\plus%402x.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\plus%403x.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pencil.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pencil%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\pencil%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thrash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thrash%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\thrash%403x.png" />
-  </ItemGroup>
 </Project>

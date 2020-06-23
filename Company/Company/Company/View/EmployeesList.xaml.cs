@@ -24,16 +24,26 @@ namespace Company
         }
 
         /// <summary>
-        /// Item selected from list
+        /// handle item selected from list
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void ItemSelected(object sender, ItemTappedEventArgs e)
+        async void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
                 return;
             var employee = e.Item as Employee;
             await Navigation.PushAsync(new DetailEmployee(employee));
+        }
+
+        /// <summary>
+        /// Remove selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            listView.SelectedItem = null;
         }
 
         /// <summary>
@@ -45,6 +55,7 @@ namespace Company
         {
             Application.Current.MainPage = new Employees();
         }
+
     }
 
 }

@@ -16,12 +16,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="10, 10, 10, 0">
-            <Entry Keyboard="Default" Placeholder="Name" x:Name="Name"/>
-            <Entry Keyboard="Default" Placeholder="Surname" x:Name="Surname"/>
-            <Entry Keyboard="Telephone" Placeholder="Phone" x:Name="Phone"/>
-            <Entry Keyboard="Default" Placeholder="Address" x:Name="Address"/>
-            <Entry Keyboard="Default" Placeholder="Specialty" x:Name="Specialty"/>
+        <StackLayout Padding="10, 0, 10, 0">
+            <Label x:Name="label" FontSize="Medium" TextColor="Red" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Entry Keyboard="Default" MaxLength="50" Placeholder="Name" x:Name="Name"/>
+            <Entry Keyboard="Default" MaxLength="50" Placeholder="Surname" x:Name="Surname"/>
+            <Entry Keyboard="Telephone" MaxLength="10" Placeholder="Phone" x:Name="Phone"/>
+            <Entry Keyboard="Default" MaxLength="100" Placeholder="Address" x:Name="Address"/>
+            <Entry Keyboard="Default" MaxLength="50" Placeholder="Specialty" x:Name="Specialty"/>
             <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 10">
                 <Button Text="Clear Field" Clicked="ClearFields"
                         BackgroundColor="Gray" TextColor="White"
@@ -30,7 +31,6 @@
                         BackgroundColor="#28a745" TextColor="White"
                         HorizontalOptions="EndAndExpand" ImageSource="{FontImage FontFamily={StaticResource MaterialFontFamily} ,Color=White,Size=20,Glyph={x:Static helpers:IconFontSolid.PlusCircle}}"/>
             </StackLayout>
-            <Label x:Name="label" TextColor="Red"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

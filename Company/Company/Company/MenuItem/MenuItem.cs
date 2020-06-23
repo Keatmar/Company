@@ -18,6 +18,10 @@ namespace Company.MenuItem
         public string Icon { get; set; }
         public Type Target { get; set; }
 
+        /// <summary>
+        /// List item for master page
+        /// </summary>
+        /// <returns></returns>
         public ObservableCollection<MenuItem> GetItems()
         {
             MenuItems = new ObservableCollection<MenuItem>();

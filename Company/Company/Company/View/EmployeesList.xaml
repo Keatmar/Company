@@ -15,9 +15,9 @@
             </OnPlatform>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout Padding="10">
+    <StackLayout >
         <ListView x:Name="listView" ItemsSource="{Binding EmployeeList}"
-                  ItemTapped="ItemSelected" HasUnevenRows="true"
+                  ItemTapped="ItemTapped" HasUnevenRows="true" ItemSelected="ItemSelected"
                   IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing">
             <ListView.ItemTemplate>
                 <DataTemplate>

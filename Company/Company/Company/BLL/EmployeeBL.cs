@@ -17,6 +17,11 @@ namespace Company.BLL
         {
             EmployeeDb.CreateTable();
         }
+
+        /// <summary>
+        /// Get all employees
+        /// </summary>
+        /// <returns></returns>
         public ObservableCollection<Employee> GetEmployees()
         {
             ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
@@ -61,7 +66,11 @@ namespace Company.BLL
             return id;
         }
 
-        public void DeleteEmploye(int id)
+        /// <summary>
+        /// Delete Employee
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteEmployee(int id)
         {
             try
             {

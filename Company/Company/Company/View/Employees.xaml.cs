@@ -24,6 +24,11 @@ namespace Company
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 
+        /// <summary>
+        /// Select item to master page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuItem.MenuItem;
