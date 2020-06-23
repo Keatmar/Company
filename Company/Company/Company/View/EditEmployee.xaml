@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:Company.Icons"
+             mc:Ignorable="d"
+             x:Class="Company.EditEmployee"
+             Title="{Binding Name,StringFormat='Edit {0}'}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons"/>
+                <On Platform="Android" Value="FontAwesome5Free-Solid-900.otf#Material Design Icons"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="10, 10, 10, 0">
+            <Entry Keyboard="Default" Placeholder="{Binding Name}" x:Name="Name"/>
+            <Entry Keyboard="Default" Placeholder="{Binding Surname}" x:Name="Surname"/>
+            <Entry Keyboard="Telephone" Placeholder="{Binding Phone}" x:Name="Phone"/>
+            <Entry Keyboard="Default" Placeholder="{Binding Address}" x:Name="Address"/>
+            <Entry Keyboard="Default" Placeholder="{Binding Specialty}" x:Name="Specialty"/>
+            <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <Button Text="Clear Field" Clicked="ClearFiled" BackgroundColor="Gray" TextColor="White" HorizontalOptions="StartAndExpand"
+                        ImageSource="{FontImage FontFamily={StaticResource MaterialFontFamily},Color=White,Size=20,Glyph={x:Static helpers:IconFontSolid.Times}}"/>
+                <Button Text="Save employee" Clicked="SaveEmployee" BackgroundColor="#28a745" TextColor="White" HorizontalOptions="EndAndExpand"
+                         ImageSource="{FontImage FontFamily={StaticResource MaterialFontFamily} ,Color=White,Size=20,Glyph={x:Static helpers:IconFontSolid.PlusCircle}}"/>
+            </StackLayout>
+            <Label x:Name="label" TextColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

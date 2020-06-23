@@ -21,8 +21,8 @@ namespace Company.MenuItem
         public ObservableCollection<MenuItem> GetItems()
         {
             MenuItems = new ObservableCollection<MenuItem>();
-            MenuItems.Add(new MenuItem { Id = 0, Title = "List of employees", Icon = "users.gif", Target = typeof(EmployeesList) });
-            MenuItems.Add(new MenuItem { Id = 1, Title = "Create new employee", Icon = "plus.gif", Target = typeof(CreateEmployee) });
+            MenuItems.Add(new MenuItem { Id = 0, Title = "List of employees", Icon = "\uf0c0", Target = typeof(EmployeesList) });
+            MenuItems.Add(new MenuItem { Id = 1, Title = "Create new employee", Icon = "\uf055", Target = typeof(CreateEmployee) });
             return MenuItems;
         }
 

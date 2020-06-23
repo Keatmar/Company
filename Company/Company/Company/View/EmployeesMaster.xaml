@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:Company.Icons"
              mc:Ignorable="d"
              x:Class="Company.EmployeesMaster"
              Title="Company">
-  <StackLayout>
+    <StackLayout>
         <ListView x:Name="MenuItemsListView"
-              SeparatorVisibility="None"
               RowHeight="100"
               BackgroundColor="#e8e8e8"
               HasUnevenRows="true"
@@ -40,11 +40,17 @@
             <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="20" Padding="15, 10, 10,10" HorizontalOptions="FillAndExpand">
-                                <Image Source="{Binding Icon}" WidthRequest="20" HeightRequest="20" VerticalOptions="Center" />
-                                <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"
-                                   Text="{Binding Title}" TextColor="Black" d:Text="{Binding .}"
-                                   FontSize="Medium"/>
+                            <StackLayout  VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="20" Padding="10,10,10,10" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Icon}" FontSize="Medium" TextColor="Black" Margin="0,5,0,0">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="iOS" Value="Material Design Icons"/>
+                                        <On Platform="Android" Value="FontAwesome5Free-Solid-900.otf#Material Design Icons"/>
+                                        </OnPlatform>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label Text="{Binding Title}" TextColor="Black" d:Text="{Binding .}"
+                                       FontSize="Medium"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

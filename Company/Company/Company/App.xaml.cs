@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Company.BLL;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,9 @@ namespace Company
         public App()
         {
             InitializeComponent();
-
+            EmployeeBL.CreateEmployeeTable();
             MainPage = new Employees();
+
         }
 
         protected override void OnStart()

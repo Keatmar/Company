@@ -45,10 +45,5 @@ namespace Company
             }
             #endregion
         }
-
-        private void MenuItemsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-
-        }
     }
 }

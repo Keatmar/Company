@@ -13,21 +13,19 @@ namespace Company.BLL
 {
     public class EmployeeBL
     {
-        private ObservableCollection<Employee> employees = new ObservableCollection<Employee>
-            {
-                new Employee{Id = 0, Name = "Marios", Surname="Katsos", Address="Smyrnis 20", Phone= "6986644593", Specialty="Software Developer"},
-                new Employee{Id = 1 ,Name = "Eleni", Surname="Spyrou", Address="Smyrnis 20", Phone= "2109964695", Specialty="Hr"}
-            };
-
-        public List<Employee> GetEmployees()
+        public static void CreateEmployeeTable()
         {
-            List<Employee> employees = new List<Employee>();
+            EmployeeDb.CreateTable();
+        }
+        public ObservableCollection<Employee> GetEmployees()
+        {
+            ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
             try
             {
-               IEmployeeDb da = new EmployeeDb();
-               Task<List<Employee>> emplTask = Task.Run(() => da.FindEmployees());
-               Task.WhenAll(emplTask);
-               employees = emplTask.Result;
+                IEmployeeDb da = new EmployeeDb();
+                Task<ObservableCollection<Employee>> emplTask = Task.Run(() => da.FindEmployees());
+                Task.WhenAll(emplTask);
+                employees = emplTask.Result;
             }
             catch (Exception ex)
             {
@@ -36,23 +34,42 @@ namespace Company.BLL
             return employees;
         }
 
-        public Employee GetById(int id)
-        {
-            Employee employee = null;
-            List<Employee> employees = this.employees.Where(x => x.Id == id).ToList();
-            if (employees != null && employees.Any())
-                employee = employees.FirstOrDefault();
-            return employee;
-        }
 
-        public void SaveEmployee(Employee employee)
+        public int SaveEmployee(Employee employee)
         {
+            int id = 0;
             try
             {
                 IEmployeeDb da = new EmployeeDb();
-                da.InsertEmployee(employee);
+                if (employee.Id == 0)
+                {
+                    Task<int> emplTask = Task.Run(() => da.InsertEmployee(employee));
+                    Task.WaitAll(emplTask);
+                    id = emplTask.Id;
+                }
+                else
+                {
+                    Task emplTask = Task.Run(() => da.UpdateEmployee(employee));
+                    Task.WhenAll(emplTask);
+                    id = employee.Id;
+                }
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
+
+        public void DeleteEmploye(int id)
+        {
+            try
+            {
+                IEmployeeDb db = new EmployeeDb();
+                Task deleteTask = Task.Run(() => db.DeleteEmployee(id));
+                Task.WaitAll(deleteTask);
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

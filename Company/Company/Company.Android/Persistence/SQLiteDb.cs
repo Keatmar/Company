@@ -13,7 +13,7 @@ namespace Company.Droid.Persistence
 	{
 		public SQLiteAsyncConnection GetConnection()
 		{
-			var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 			var path = Path.Combine(documentsPath, "MySQLite.db3");
 
 			return new SQLiteAsyncConnection(path);

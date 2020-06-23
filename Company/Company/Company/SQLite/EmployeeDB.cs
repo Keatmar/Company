@@ -3,6 +3,8 @@ using Company.Persistance;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -19,34 +21,71 @@ namespace Company.SQLite
         {
             _con = DependencyService.Get<ISQLiteDb>().GetConnection();
             _con.CreateTableAsync<Employee>();
-
         }
 
-        async public void InsertEmployee(Employee employee)
+        public async Task<int> InsertEmployee(Employee employee)
+        {
+            int id = 0;
+            try
+            {
+
+                int item = await _con.InsertAsync(employee);
+                if (item == 0)
+                    throw new Exception("Something wrong with insert employee");
+                else
+                    id = item;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return id;
+        }
+
+        public async Task UpdateEmployee(Employee employee)
         {
             try
             {
-                await _con.InsertAsync(employee);
+                int row = await _con.UpdateAsync(employee);
+                if (row == 0)
+                    throw new Exception("Non row effected");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        async public Task<List<Employee>> FindEmployees()
+        async public Task<ObservableCollection<Employee>> FindEmployees()
         {
-            List<Employee> employees = new List<Employee>();
+            ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
             try
             {
-                CreateTable();
-                employees = await _con.Table<Employee>().ToListAsync();
+                var items = await _con.Table<Employee>().ToListAsync();
+                if (items != null && items.Any())
+                {
+                    foreach (Employee item in items)
+                        employees.Add(item);
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             return employees;
+        }
+
+        async public Task DeleteEmployee(int id)
+        {
+            try
+            {
+                var row = await _con.DeleteAsync<Employee>(id);
+                if (row == 0)
+                    throw new Exception("Non row deleted");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -17,31 +17,34 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="CreateEmployee.xaml.cs">
+    <Compile Update="View\CreateEmployee.xaml.cs">
       <DependentUpon>CreateEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Details.xaml.cs">
-      <DependentUpon>Details.xaml</DependentUpon>
+    <Compile Update="View\DetailEmployee.xaml.cs">
+      <DependentUpon>DetailEmployee.xaml</DependentUpon>
     </Compile>
-    <Compile Update="EmployeesList.xaml.cs">
+    <Compile Update="View\EmployeesList.xaml.cs">
       <DependentUpon>EmployeesList.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CreateEmployee.xaml">
+    <EmbeddedResource Update="View\CreateEmployee.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Details.xaml">
+    <EmbeddedResource Update="View\DetailEmployee.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Employees.xaml">
+    <EmbeddedResource Update="View\EditEmployee.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="EmployeesList.xaml">
+    <EmbeddedResource Update="View\Employees.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="EmployeesMaster.xaml">
+    <EmbeddedResource Update="View\EmployeesList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\EmployeesMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

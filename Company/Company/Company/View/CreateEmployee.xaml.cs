@@ -20,7 +20,7 @@ namespace Company
             InitializeComponent();
         }
 
-        async void Handler_AddEmployee(object sender, EventArgs e)
+        void SaveEmployee(object sender, EventArgs e)
         {
             try
             {
@@ -31,41 +31,51 @@ namespace Company
                     return;
                 }
                 else
-                    employee._name = Name.Text;
+                    employee.Name = Name.Text;
                 if (Surname.Text == null)
                 {
                     label.Text = "*Required surname to add employee";
                     return;
                 }
                 else
-                    employee._surname = Surname.Text;
+                    employee.Surname = Surname.Text;
                 if (Phone.Text == null)
                 {
                     label.Text = "*Required phone to add employee";
                     return;
                 }
                 else
-                    employee._phone = Phone.Text;
+                    employee.Phone = Phone.Text;
                 if (Address.Text == null)
                 {
                     label.Text = "*Required address to add employee";
                     return;
                 }
                 else
-                    employee._address = Address.Text;
+                    employee.Address = Address.Text;
                 if (Specialty.Text == null)
                 {
                     label.Text = "*Required specialty to add employee";
                     return;
                 }
                 else
-                    employee._specialty = Specialty.Text;
-
-                new EmployeeBL().SaveEmployee(employee);
+                    employee.Specialty = Specialty.Text;
+                int employeeId = new EmployeeBL().SaveEmployee(employee);
+                Application.Current.MainPage = new Employees();
             }
             catch
             {
             }
+        }
+
+        void ClearFields(object sender, EventArgs e)
+        {
+            Name.Text = null;
+            Surname.Text = null;
+            Phone.Text = null;
+            Address.Text = null;
+            Specialty.Text = null;
+            label.Text = null;
         }
     }
 }

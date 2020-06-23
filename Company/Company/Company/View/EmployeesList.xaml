@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:Company.Icons"
+             mc:Ignorable="d"
+             x:Class="Company.EmployeesList"
+             Title="Employees">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons"/>
+                <On Platform="Android" Value="FontAwesome5Free-Regular-400.otf#Material Design Icons"/>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Padding="10">
+        <ListView x:Name="listView" ItemsSource="{Binding EmployeeList}"
+                  ItemTapped="ItemSelected" HasUnevenRows="true"
+                  IsPullToRefreshEnabled="True" Refreshing="Handle_ListRefreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2"
+                                    HeightRequest="30"
+                                    WidthRequest="30"
+                                   Source="{FontImage FontFamily={StaticResource MaterialFontFamily},Color=Gray,Size=Medium,Glyph={x:Static helpers:IconFont.User}}"/>
+                            <Label  Grid.Column="1"
+                                    Text="{Binding Name}" TextColor="Black"/>
+                            <Label  Grid.Column="1" Grid.Row="1"
+                                    Text="{Binding Specialty}" TextColor="Gray"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

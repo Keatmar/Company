@@ -16,14 +16,12 @@ namespace Company
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Employees : MasterDetailPage
     {
+
         public Employees()
         {
             InitializeComponent();
 
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
-
-            // Initialize table
-            EmployeeDb.CreateTable();
         }
 
         void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

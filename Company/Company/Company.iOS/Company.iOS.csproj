@@ -69,6 +69,9 @@
     <None Include="Info.plist" />
     <Compile Include="Persistence\SQLiteDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\FontAwesome5Brands-Regular-400.otf" />
+    <BundleResource Include="Resources\FontAwesome5Free-Regular-400.otf" />
+    <BundleResource Include="Resources\FontAwesome5Free-Solid-900.otf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -151,5 +154,23 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\plus%403x.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pencil%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pencil%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thrash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thrash%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thrash%403x.png" />
   </ItemGroup>
 </Project>
